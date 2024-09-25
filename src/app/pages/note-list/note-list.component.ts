@@ -57,7 +57,9 @@ export class NoteListComponent implements OnInit {
   filter(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     let value = inputElement.value;
+    console.log('Input value:', value); // Debug log
     value = value.toLowerCase().trim();
+    console.log('proceeded value:', value); // Debug log
     let arrValues = new Array<any>;
     arrValues = value.split(" ");
     arrValues = this.removeDuplicated(arrValues);
@@ -68,7 +70,7 @@ export class NoteListComponent implements OnInit {
     arr.forEach(word => {
     this.notes.filter(note=>{
       let noteId = this._notesService.getId(note);
-      if(note.title && note.title.includes(word) || note.body && note.body.includes(word)) {
+      if(note.title && note.title.toLowerCase().includes(word) || note.body && note.body.toLowerCase().includes(word)) {
         if (notesObject[noteId]) {
           notesObject[noteId] += 1;
         }else {
@@ -100,7 +102,6 @@ export class NoteListComponent implements OnInit {
       return bCount - aCount;
 
     })
-
   }
 
 

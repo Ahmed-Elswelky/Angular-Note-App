@@ -18,6 +18,10 @@ input, textarea {
     }
   }
 }
+label {
+  color: $purple !important;
+}
+
 button {
   color: white !important;
   text-decoration: none !important;
