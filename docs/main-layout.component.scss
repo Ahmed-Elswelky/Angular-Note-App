@@ -48,6 +48,31 @@
 input {
   background-color: white !important;
 }
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 100px;
+
+  a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+
+    p {
+      color: #EAD8B1;
+      font-weight: bold;
+    }
+
+    i {
+      color: #EAD8B1;
+      font-size: 20px;
+    }
+  }
+}
 
 @media screen and (max-device-width: 767px) {
   .lan-btns {
@@ -57,6 +82,9 @@ input {
   .flag {
     width: 30px;
     height: 30px;
+  }
+  .logo {
+    left: 15px;
   }
 
 }
