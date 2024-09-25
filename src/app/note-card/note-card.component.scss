@@ -1,0 +1,84 @@
+@import "../../../src/main-style.scss";
+
+.note-card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  // 2: bottom - 15: blur - 2:spread
+  box-shadow: 0 2px 15px 2px rgba(black, 0.068);
+  border-radius: 5px;
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 0 4px rgba(black, 0.068);
+
+    .x-button {
+      opacity: 1;
+      transition-delay: 0.35;
+      transform: scale(1);
+
+    }
+  }
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  // }
+  .x-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 1;
+    width: 34px;
+    height: 34px;
+    background-color: $light-red;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    transform: scale(0.35);
+
+    &:hover {
+      background-color: darken($light-red, 2%);
+    }
+
+    &:active {
+      background-color: darken($light-red, 4%);
+    }
+
+    i {
+      position: absolute !important;
+      color: #da4e4e;
+      display: block;
+      margin: 8px auto;
+      left: 10px;
+    }
+  }
+  .note-card-content {
+    padding: 20px;
+
+    .note-card-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: $purple;
+    }
+
+    .note-card-body {
+      position: relative;
+      max-height: 80px;
+      overflow: hidden;
+
+      .fade-out-truncation {
+        position: absolute;
+        pointer-events: none;
+        bottom: 0;
+        height: 50%;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(white, 0) 0%, rgba(white, 0.8) 50%, white 100%);
+      }
+    }
+  }
+}
