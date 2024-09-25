@@ -1,0 +1,18 @@
+{
+  "APP_TITLE": "تطبيق الملاحظات",
+  "Title": "العنوان",
+  "Body": "المحتوى",
+  "Cancel": "إلغاء",
+  "Save": "حفظ",
+  "Add" : "أضـف",
+  "Filter" : "ابحث",
+  "ADD_NOTE": "إضافة ملاحظة",
+  "NOTE_DELETED_SUCCESS": "تم حذف الملاحظة بنجاح!",
+  "DELETE_TITLE": "حذف",
+  "CANCEL_SUCCESS": "تم إلغاء الملاحظة بنجاح!",
+  "CANCEL_TITLE": "إلغاء",
+  "UPDATED_SUCCESS": "تم تحديث الملاحظة بنجاح!",
+  "UPDATE_TITLE": "تحديث",
+  "ADDED_SUCCESS": "تمت إضافة الملاحظة بنجاح!",
+  "ADDITION_TITLE": "إضافة"
+}

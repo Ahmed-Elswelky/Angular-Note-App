@@ -5,6 +5,7 @@ import { Note } from '../shared/Note.model';
 import { NotesService } from '../shared/notes.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-note-details',
@@ -18,7 +19,7 @@ export class NoteDetailsComponent implements OnInit {
   newNote: boolean
 
 
-  constructor(private _notesServices: NotesService, private router: Router, private route: ActivatedRoute, private toaster : ToastrService){
+  constructor(private _notesServices: NotesService, private router: Router, private route: ActivatedRoute, private toaster : ToastrService, private translate : TranslateService){
     this.note = new Note;
     this.route.params.subscribe((params: Params)=>{
       this.noteId = this.route.snapshot.params['id'];
@@ -38,28 +39,32 @@ export class NoteDetailsComponent implements OnInit {
   onSubmit(form : NgForm){
     if(this.newNote) {
       this._notesServices.add(form.value);
-      this.toaster.success('Note added successfully!', 'Addition', {
-        timeOut: 3000,
-        positionClass: 'toast-top-right',
-      });
-      // console.log("add");
+      this.translate.get(["ADDED_SUCCESS","ADDITION_TITLE"]).subscribe(translations =>{
+        this.toaster.success(translations.ADDED_SUCCESS , translations.ADDITION_TITLE, {
+          timeOut: 3000,
+          positionClass: 'toast-top-right',
+        });
+      })
     }else {
       this._notesServices.update(this.noteId, form.value.title , form.value.body);
-      this.toaster.success('Note Updated successfully!', 'Update', {
-        timeOut: 3000,
-        positionClass: 'toast-top-right',
-      });
-      // console.log(this.noteId, this.note.title, this.note.body);
+      this.translate.get(["UPDATED_SUCCESS","UPDATE_TITLE"]).subscribe(translations =>{
+        this.toaster.success(translations.UPDATED_SUCCESS , translations.UPDATE_TITLE, {
+          timeOut: 3000,
+          positionClass: 'toast-top-right',
+        });
+      })
     }
     this.router.navigateByUrl("/");
   }
 
   cancelAddition() {
-    this.toaster.error('Addition Cancelled', 'Cancel', {
-      timeOut: 3000,
-      positionClass: 'toast-top-right',
-    });
 
+    this.translate.get(["CANCEL_SUCCESS","CANCEL_TITLE"]).subscribe(translations =>{
+      this.toaster.error(translations.CANCEL_SUCCESS , translations.CANCEL_TITLE, {
+        timeOut: 3000,
+        positionClass: 'toast-top-right',
+      });
+    })
     this.router.navigateByUrl("/")
   }
 }

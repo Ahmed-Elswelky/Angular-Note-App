@@ -1,7 +1,13 @@
 <div class="layout-box">
 
-  <div class="top-bar">
-    <h1>Note App</h1>
+<div class="top-bar">
+  <div class="row">
+    <h1>{{"APP_TITLE" | translate}}</h1>
+  </div>
+  <div class="lan-btns">
+    <button (click)="switchLanguage('en')"><img src="../../../assets/enFlag.png" alt="" class="flag"></button>
+    <button (click)="switchLanguage('ar')"><img src="../../../assets/arFlag.jpeg" alt="" class="flag"></button>
+  </div>
 </div>
 
 <div class="page-content">

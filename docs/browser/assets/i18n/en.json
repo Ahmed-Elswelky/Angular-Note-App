@@ -1,0 +1,18 @@
+{
+  "APP_TITLE": "Note App",
+  "Title": "Title",
+  "Body": "Body",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Add" : "Add",
+  "Filter" : "Filter",
+  "ADD_NOTE": "Add Note",
+  "NOTE_DELETED_SUCCESS": "Note deleted successfully!",
+  "DELETE_TITLE": "Delete",
+  "CANCEL_SUCCESS": "Note cancelled successfully!",
+  "CANCEL_TITLE": "Cancel",
+  "UPDATED_SUCCESS": "Note updated successfully!",
+  "UPDATE_TITLE": "Update",
+  "ADDED_SUCCESS": "Note added successfully!",
+  "ADDITION_TITLE": "Addition"
+}

@@ -4,6 +4,7 @@ import { Note } from '../shared/Note.model';
 import { animate, query, stagger, state, style, transition, trigger } from '@angular/animations';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-note-list',
@@ -36,7 +37,7 @@ export class NoteListComponent implements OnInit {
   notes: Note[] = new Array<Note>;
   filteredNotes : Note[] = new Array<Note>;
 
-  constructor( private _notesService: NotesService, private toaster: ToastrService) {
+  constructor( private _notesService: NotesService, private toaster: ToastrService, private translate: TranslateService) {
   }
 
   ngOnInit(): void {
@@ -48,18 +49,23 @@ export class NoteListComponent implements OnInit {
 
   deleteNote(index: number) {
     this._notesService.delete(index);
-    this.toaster.success('Note deleted successfully!', 'Delete', {
-      timeOut: 3000, // Duration in milliseconds
-      positionClass: 'toast-top-right', // Position of the toast
+    this.translate.get(['NOTE_DELETED_SUCCESS', 'DELETE_TITLE']).subscribe({
+      next: translations => {
+        this.toaster.success(translations.NOTE_DELETED_SUCCESS, translations.DELETE_TITLE, {
+          timeOut: 3000,
+          positionClass: 'toast-top-right',
+        });
+      },
+      error: err => {
+        console.error('Translation error:', err);
+      }
     });
   }
 
   filter(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     let value = inputElement.value;
-    console.log('Input value:', value); // Debug log
     value = value.toLowerCase().trim();
-    console.log('proceeded value:', value); // Debug log
     let arrValues = new Array<any>;
     arrValues = value.split(" ");
     arrValues = this.removeDuplicated(arrValues);

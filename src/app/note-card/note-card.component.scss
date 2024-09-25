@@ -81,4 +81,11 @@
       }
     }
   }
+
+}
+:dir(rtl) {
+  .x-button {
+    right: auto; // Reset right for RTL
+    left: 12px;  // Set left for RTL
+  }
 }

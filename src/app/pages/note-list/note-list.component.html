@@ -2,7 +2,7 @@
   <div class="search-bar-container">
     <div class="field">
       <p class="control has-icons-left">
-        <input class="input" type="text" placeholder="Filter" (input)="filter($event)"/>
+        <input class="input" type="text" [placeholder]='"Filter" | translate' (input)="filter($event)"/>
         <span class="icon is-small is-left">
           <i class="fas fa-search"></i>
         </span>
@@ -14,6 +14,6 @@
     <app-note-card [@fadeAndScale] *ngFor="let note of filteredNotes; index as i" [link] = "note.id"  [title] ="note.title" [body] = "note.body" (deleteEvent) = "deleteNote(note.id)"></app-note-card>
   </div>
 
-  <button class="button floating-add-btn is-primary" routerLink="new">+ Add</button>
+  <button class="button floating-add-btn is-primary" routerLink="new">+ {{"Add" | translate}}</button>
 
 </div>
